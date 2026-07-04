@@ -90,19 +90,13 @@ export const useSubscriptionStore = defineStore('subscription', {
     },
 
     logState(): void {
-      //console.log('Current state:', JSON.parse(JSON.stringify(this.items)))
-      //console.log('Current state:', JSON.stringify(this.items))
-      
-      // 1. Оставляем только те поля, которые были в исходном JSON
       const cleanData = this.items.map(item => ({
         site: item.site,
         subscribed: item.subscribed
       }));
 
-      // 2. Превращаем в красивую JSON-строку с отступами
       const jsonOutput = JSON.stringify(cleanData, null, 2);
 
-      // 3. Выводим в консоль
       console.log('%c CURRENT SUBSCRIPTIONS STATE:', 'color: #346DF1; font-weight: bold;');
       console.log(jsonOutput);
     }
